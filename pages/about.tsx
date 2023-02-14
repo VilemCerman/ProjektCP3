@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Viktor Instruments - O nás</title>
+        <title>O nás</title>
         <meta name="description" content="Viktor Instruments - O nás" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

@@ -1,5 +1,6 @@
 import TopBar from "@/components/TopBar";
 import Head from "next/head";
+import { products } from "@/utility/MyAmazingDatabase";
 
 export default function Home(){
   // TODO - product page
@@ -13,6 +14,8 @@ export default function Home(){
                 <link rel="icon" href="./static/img/logo.svg" />
             </Head>
             <TopBar/>
+
+            
         </>
     )
 }
