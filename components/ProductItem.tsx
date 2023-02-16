@@ -13,17 +13,6 @@ type Props = {
     product: Product
 }
 
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: 200,
-    width: 200,
-}));
-
 const Img = styled('img')({
 margin: 'auto',
 display: 'block',
@@ -35,7 +24,7 @@ export const ProductItem : FC<Props> = (props: Props) => {
     const{ product: {id, name, price, description}}= props;
     return(
         <Grid item>
-            <Paper sx={{
+            <Paper elevation={4} sx={{
             p: 2,
             margin: 'auto',
             Width: 500,
@@ -43,7 +32,7 @@ export const ProductItem : FC<Props> = (props: Props) => {
             backgroundColor: (theme) =>
             theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
             }} >
-                <Grid container flexDirection='column'>
+                <Grid container flexDirection='column' >
                     <Link href={`/shop/${name}`}>
                         <Grid item>
                             <Img alt={name} src={`/static/img/shop/${name}.jpg`} width="200"/>
