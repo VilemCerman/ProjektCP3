@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import { Basic, Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -13,24 +12,22 @@ import { Typography } from '@mui/material'
 import { Product } from '@/types'
 import {ProductItem} from '../components/ProductItem';
 import { products } from '@/utility/MyAmazingDatabase'
+import Head from '../components/Head'
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Obchod</title>
-        <meta name="description" content="Viktor Instruments - Obchod" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="./static/img/logo.svg" />
-      </Head>
+      <Head></Head>
       <TopBar/>
-      <Typography variant="h2" gutterBottom>Obchod</Typography>
 
-      <Box sx={{ flexGrow: 1 }}>
+      <Grid sx={{ flexGrow: 1, marginLeft: 5}} container>
+        <Grid item sx={{paddingLeft:20}}>
+          <Typography variant="h2" gutterBottom>Obchod</Typography>
+        </Grid>
         <Grid container spacing={2} justifyContent='center' padding={1}>
           {products.map((product) => <ProductItem key={product.id} product={product}></ProductItem>)}
         </Grid>
-      </Box>
+      </Grid>
       
     </>
   )
