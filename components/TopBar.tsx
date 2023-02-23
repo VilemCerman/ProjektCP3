@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { styled } from '@mui/material/styles';
 
 const pages = [
   {name: 'Domů', link: '/'},
@@ -22,6 +23,13 @@ const pages = [
 ]
 
 const settings = [{name: 'Profil', link: './'}, {name: 'Účet', link: './'}, {name: 'Košík', link: './'}, {name: 'Odhlásit se', link: './'}];
+
+const Img = styled('img')({
+  margin: 'auto',
+  display: 'block',
+  maxWidth: '100%',
+  maxHeight: '100%',
+  });
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -48,7 +56,8 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />     */}           {/*TODO - Logo*/}
-          <Typography
+          <Img alt='logo' src='/static/img/logo.svg' sx={{width:'15%', margin:1}}></Img>
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -64,7 +73,7 @@ function ResponsiveAppBar() {
             }}
           >
             Viktor Instruments
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

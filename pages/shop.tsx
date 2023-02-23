@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material'
 import { Product } from '@/types'
 import {ProductItem} from '../components/ProductItem';
-import { products } from '@/utility/MyAmazingDatabase'
+import { products } from '@/data/MyAmazingDatabase'
 import Head from '../components/Head'
 
 export default function Home() {

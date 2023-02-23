@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-
+import { getApolloClient } from '../utility/apollo-client';
 import createEmotionCache from '../utility/createEmotionCache';
+
+const apolloClient = getApolloClient({ forceNew: true });
 
 export default class MyDocument extends Document {
   render() {
@@ -76,6 +78,7 @@ MyDocument.getInitialProps = async (ctx) => {
     />
   ));
 
+  const apolloState = apolloClient.extract();
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
@@ -83,5 +86,6 @@ MyDocument.getInitialProps = async (ctx) => {
       ...React.Children.toArray(initialProps.styles),
       ...emotionStyleTags,
     ],
+    apolloState
   };
 };
