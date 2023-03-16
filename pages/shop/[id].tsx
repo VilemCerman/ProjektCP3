@@ -18,7 +18,7 @@ export default function Home(){
         <>
             <Head></Head>
             <TopBar/>
-            <Image alt={currentProduct.name} src={`/static/img/shop/${currentProduct.name}.jpg`} fill></Image>
+            <Image alt={currentProduct.name} src={`/static/img/shop/${currentProduct.name}.jpg`} height={200} width={200}></Image>
 
             
         </>

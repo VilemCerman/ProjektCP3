@@ -1,10 +1,13 @@
-import { createYoga, createSchema } from 'graphql-yoga'
+import { createYoga, createSchema } from 'graphql-yoga';
 import { gql } from 'graphql-tag';
 import axios from 'axios';
+import products from 'data/products.json';
+
 const typeDefs = gql`
   type Query {
     users: [User!]!
     githubUsers: [GithubUser!]!
+    products: [Product]
   }
   type User {
     name: String
@@ -14,25 +17,22 @@ const typeDefs = gql`
     login: String!
     avatarUrl: String!
   }
+  type Product = {
+    id: Number!
+    name: String!
+    price: Number!
+    description: String | Undefined!
+  }
 `
+
 const resolvers = {
   Query: {
     users: () => {
       return [{ name: 'Nextjs' }]
     },
-    githubUsers: async () => {
-        try {
-          const users = await axios.get("https://api.github.com/users");
-          //@ts-ignore
-          return users.data.map(({ id, login, avatar_url: avatarUrl }) => ({
-            id,
-            login,
-            avatarUrl
-          }));
-        } catch (error) {
-          throw error;
-        }
-      },
+    products: () => {
+      return products
+    }
   },
 }
 const schema = createSchema({
