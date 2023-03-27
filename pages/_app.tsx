@@ -13,6 +13,7 @@ import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import '../styles/globals.css';
 import { ApolloProvider } from '@apollo/client';
 import { getApolloClient } from '@/utility/apollo-client';
+import { AuthContextProvider } from '@/components/auth-context-provider';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -26,14 +27,16 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   const client = getApolloClient({forceNew: false}); 
 
   return (
-    <ApolloProvider client={client}>
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </CacheProvider>
-    </ApolloProvider>
+    <AuthContextProvider>
+      <ApolloProvider client={client}>
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </CacheProvider>
+      </ApolloProvider>
+    </AuthContextProvider>
   );
 };
 

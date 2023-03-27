@@ -5,16 +5,20 @@ import TopBar from '../components/TopBar'
 import { Typography } from '@mui/material'
 import Head from '../components/Head'
 import Box from '@mui/material/Box'
+import { authUtils } from '@/firebase/authUtils'
+import { useAuthContext } from '@/components/auth-context-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const {user} = useAuthContext();
   return (
     <>
       <Head></Head>
 
       <TopBar/>
       <Box sx={{}}>
+        
         <Typography variant='h2'>VÍTEJTE!</Typography>
         <Typography variant='h5'>Proč pořídit dechový nástroj či příslušenství u Viktor Instruments?</Typography>
         <Typography variant='body1'>
@@ -27,6 +31,7 @@ export default function Home() {
           - stále férové ceny! - rychlost dodání!<br />
         </Typography>
       </Box>
+      
 
     </>
   )
