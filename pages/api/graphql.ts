@@ -24,7 +24,6 @@ const typeDefs = gql`
   description: String
 }
 `
-
 const resolvers = {
   Query: {
     users: () => {
@@ -62,9 +61,6 @@ export default createYoga({
 //     githubUsers: [GithubUser!]!
 //   }
 
-//   type Mutation {
-//   }
-
 
 //   type User {
 //     name: String
@@ -80,7 +76,7 @@ export default createYoga({
 //   Query: {
 //     githubUsers: async () => {
 //         try {
-//           const users = await axios.get("https://api.github.com/users")           as {data:{id: string, login: string, avatar_url: string}[]};
+//           const users = await axios.get("https://api.github.com/users") as {data:{id: string, login: string, avatar_url: string}[]};
 //           return users.data.map(({ id, login, avatar_url: avatarUrl }) => ({
 //             id,
 //             login,
