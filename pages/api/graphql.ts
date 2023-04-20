@@ -1,7 +1,6 @@
-import { createYoga, createSchema } from 'graphql-yoga';
-import { gql } from 'graphql-tag';
-import axios from 'axios';
 import products from 'data/products.json';
+import { gql } from 'graphql-tag';
+import { createSchema, createYoga } from 'graphql-yoga';
 
 const typeDefs = gql`
   type Query {
@@ -18,38 +17,37 @@ const typeDefs = gql`
     avatarUrl: String!
   }
   type Product {
-  id: Int!
-  name: String!
-  price: Float!
-  description: String
-}
-`
+    id: Int!
+    name: String!
+    price: Float!
+    description: String
+  }
+`;
 const resolvers = {
   Query: {
     users: () => {
-      return [{ name: 'Nextjs' }]
+      return [{ name: 'Nextjs' }];
     },
     products: () => {
-      return products
-    }
+      return products;
+    },
   },
-}
+};
 const schema = createSchema({
   typeDefs,
   resolvers,
-})
+});
 export const config = {
   api: {
     // Disable body parsing (required for file uploads)
     bodyParser: false,
   },
-}
+};
 export default createYoga({
   schema,
   // Needed to be defined explicitly because our endpoint lives at a different path other than `/graphql`
   graphqlEndpoint: '/api/graphql',
-})
-
+});
 
 // import { createYoga, createSchema } from 'graphql-yoga'
 // import { gql } from 'graphql-tag';
@@ -60,7 +58,6 @@ export default createYoga({
 //     users (name: String): [User!]!
 //     githubUsers: [GithubUser!]!
 //   }
-
 
 //   type User {
 //     name: String

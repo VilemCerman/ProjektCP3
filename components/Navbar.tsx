@@ -1,5 +1,4 @@
-//TODO - navbar
-export default function Navbar(){
-    <>
-    </>
+// TODO - navbar
+export default function Navbar() {
+  <></>;
 }
