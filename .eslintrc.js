@@ -35,7 +35,7 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         bracketSpacing: true,
         bracketSameLine: false,
@@ -43,7 +43,6 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         endOfLine: 'auto',
-        
       },
     ],
     'no-restricted-syntax': 'off',
@@ -59,7 +58,10 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
     // Use function hoisting to improve code readability
-    'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
+    'no-use-before-define': [
+      'error',
+      { functions: false, classes: true, variables: true },
+    ],
     // Allow most functions to rely on type inference. If the function is exported, then `@typescript-eslint/explicit-module-boundary-types` will ensure it's typed.
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': [
@@ -120,7 +122,10 @@ module.exports = {
     'max-depth': ['error', 2],
     complexity: ['error', 16],
     'no-console': ['error', { allow: ['warn', 'error', 'info', 'log'] }],
-    'promise/catch-or-return': ['error', { terminationMethod: ['catch', 'asCallback', 'finally'] }],
+    'promise/catch-or-return': [
+      'error',
+      { terminationMethod: ['catch', 'asCallback', 'finally'] },
+    ],
     'sonarjs/no-small-switch': 'off',
   },
   overrides: [
@@ -141,6 +146,10 @@ module.exports = {
         '@typescript-eslint/no-unsafe-call': 'off',
         'eslint-disable unicorn/no-null': 'off',
         'unicorn/no-useless-undefined': 'off',
+        'import/no-default-export': 'warn',
+        'unicorn/filename-case': 'warn',
+        'sonarjs/no-duplicate-string': 'warn',
+        'no-underscore-dangle': 'warn',
       },
     },
   ],

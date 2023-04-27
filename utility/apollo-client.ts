@@ -1,4 +1,9 @@
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client';
+import {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+} from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 // import { auth } from '../components/userContext';
 const isServer = typeof window === 'undefined';
@@ -49,14 +54,16 @@ type ApolloClientProps =
     };
 export function getApolloClient(parameters: ApolloClientProps) {
   const forceNew = parameters?.forceNew;
-  const logout = !parameters.forceNew ? parameters.logout : undefined;
+  const logout = parameters.forceNew ? undefined : parameters.logout;
   if (!CLIENT || forceNew) {
     CLIENT = new ApolloClient({
       ssrMode: isServer,
       uri: endpoint,
       cache: new InMemoryCache().restore(windowApolloState || {}),
       credentials: 'same-origin',
-      link: ApolloLink.from(isServer || !logout ? [httpLink()] : [logoutLink(logout), httpLink()]),
+      link: ApolloLink.from(
+        isServer || !logout ? [httpLink()] : [logoutLink(logout), httpLink()],
+      ),
       /**
         // Default options to disable SSR for all queries.
         defaultOptions: {

@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
-import Head from '@/components/head';
 import { useRouter } from 'next/router';
 
+import Head from '@/components/head';
 import TopBar from '@/components/top-bar';
 import { products } from '@/data/my-amazing-database';
 

@@ -4,7 +4,7 @@ import { FirebaseError } from 'firebase/app';
 import { useRouter } from 'next/navigation';
 import React, { FormEvent } from 'react';
 
-import { authUtils } from '../firebase/authUtils';
+import { authUtils } from '../firebase/auth-utils';
 
 function Page() {
   const [email, setEmail] = React.useState('');
