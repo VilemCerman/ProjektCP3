@@ -1,5 +1,5 @@
-import Head from '../components/Head';
-import TopBar from '../components/TopBar';
+import Head from '../components/head';
+import TopBar from '../components/top-bar';
 
 export default function Home() {
   return (

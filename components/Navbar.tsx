@@ -1,4 +1,4 @@
 // TODO - navbar
-export default function Navbar() {
+export default function navbar() {
   <></>;
 }

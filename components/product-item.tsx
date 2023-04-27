@@ -17,9 +17,9 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
-export const ProductItem: FC<Props> = (props: Props) => {
+export const product: FC<Props> = (props: Props) => {
   const {
-    product: { id, name, price, description },
+    product: { id, name, price },
   } = props;
   return (
     <Grid item>

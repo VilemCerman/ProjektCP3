@@ -12,7 +12,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function BasicGrid() {
+export default function basic-grid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

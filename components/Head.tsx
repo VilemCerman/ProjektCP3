@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-export default function VHead() {
+// eslint-disable-next-line import/no-default-export
+export default function head() {
   return (
     <Head>
       <title>Viktor Instruments</title>

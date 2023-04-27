@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-import { products } from '@/data/MyAmazingDatabase';
+import { products } from '@/data/my-amazing-database';
 
-import Head from '../components/Head';
-import { ProductItem } from '../components/ProductItem';
-import TopBar from '../components/TopBar';
+import Head from '../components/head';
+import { ProductItem } from '../components/product-item';
+import TopBar from '../components/top-bar';
 
 export default function Home() {
   return (

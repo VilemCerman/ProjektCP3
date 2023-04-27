@@ -1,9 +1,9 @@
 import { Grid, Typography } from '@mui/material';
-import Head from 'components/Head';
+import Head from '@/components/head';
 import { useRouter } from 'next/router';
 
-import TopBar from '@/components/TopBar';
-import { products } from '@/data/MyAmazingDatabase';
+import TopBar from '@/components/top-bar';
+import { products } from '@/data/my-amazing-database';
 
 export default function Home() {
   // TODO - product page
